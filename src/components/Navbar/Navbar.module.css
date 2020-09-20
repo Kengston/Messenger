@@ -1,0 +1,33 @@
+.imgex {
+    margin-top: auto;
+    height: 50px;
+    padding-left: 5px;
+    padding-top: 5px;
+    display: flex;
+    transition-duration: .3s;
+}
+.ex {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    height: 200px;
+}
+.active {
+    height: 50px;
+    padding-left: 5px;
+    padding-top: 5px;
+    display: flex;
+    transition-duration: .3s;
+    opacity: .3;
+}
+.nav img{
+    height: 50px;
+    padding-left: 5px;
+    padding-top: 5px;
+    display: flex;
+    transition-duration: .3s;
+    opacity: 1;
+}
+.nav img:hover{
+    transform: translateX(-3px)
+}

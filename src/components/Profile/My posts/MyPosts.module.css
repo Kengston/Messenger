@@ -1,0 +1,13 @@
+.mp {
+    padding-left: 75px;
+    padding-top: 20px;
+    font-size: 50px;
+    display: block;
+    position: relative;
+}
+.sp {
+    font-size: 25px;
+    margin-left: 1em;
+    position: absolute;
+    top: 50%;
+}

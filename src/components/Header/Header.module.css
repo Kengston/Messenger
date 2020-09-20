@@ -1,0 +1,18 @@
+.img {
+    height: 60px;
+    border-radius: 50%;
+}
+.span {
+    font-size: 40px;
+    margin-left: 76px;
+    position: absolute;
+
+}
+.blck {
+    display: block;
+    position: relative;
+}
+
+
+
+

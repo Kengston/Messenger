@@ -1,0 +1,30 @@
+.textarea {
+    resize: none;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 1.2rem;
+    border: solid gray 1px;
+    width: 600px;
+    height: 50px;
+    padding-left: 20px;
+
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.area {
+    margin-left: 85px;
+}
+.btn {
+    font-size: 40px;
+    margin-left: 20px;
+    position: absolute;
+}
+.ddiv {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr max-content;
+}

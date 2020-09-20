@@ -1,0 +1,36 @@
+.messagesWrapper {
+    background-color: rgba(255, 255, 255, .7);
+    overflow-y: auto;
+    height: 100%;
+}
+.messageSpace {
+    width: available;
+    height: fit-content;
+    overflow: auto;
+    margin: 1vh 0;
+}
+.sent {
+    float: right;
+    margin-right: .5rem;
+    background-color: #fff;
+    border-color: #9b9b9b;
+    border-width: 2px;
+    border-radius: 1rem 1rem 0 1rem;
+    border-style: solid;
+}
+.received {
+    float: left;
+    margin-left: .5rem;
+    border-color: #9b9b9b;
+    border-width: 1px;
+    background-color: #fff;
+    border-radius: 0 1rem 1rem 1rem;
+    border-style: solid;
+}
+.bubble {
+    word-break: break-word;
+    padding: .6rem;
+    width: fit-content;
+    max-width: 300px;
+    font-size: 1.2rem;
+}

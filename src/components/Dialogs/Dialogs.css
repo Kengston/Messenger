@@ -1,0 +1,22 @@
+.app-dialog {
+    display: grid;
+    grid-template-areas:
+      "s b d";
+    grid-template-columns: 280px 1px 2fr;
+    height: 492px;
+}
+.slider {
+    grid-area: s;
+    height: 492px;
+}
+.dialog {
+    grid-area: d;
+    height: 492px;
+    height: 100%;
+    grid-template-rows: 1fr max-content;
+}
+.border {
+    grid-area: b;
+    height: 492px;
+    background: #9b9b9b;
+}

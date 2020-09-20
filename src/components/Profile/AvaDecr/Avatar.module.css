@@ -1,0 +1,32 @@
+.item {
+    display: grid;
+    grid-template-areas:
+    "p n"
+    "p d";
+    grid-template-columns: 2fr 4fr;
+    grid-auto-rows: 1fr 2fr;
+    height: 250px;
+}
+.picture {
+    padding-top: 25px;
+    padding-left: 75px;
+    font-size: 200px;
+    grid-area: p;
+    width: 200px;
+}
+.name {
+    grid-area: n;
+    padding-top: 50px;
+    font-size: 60px;
+    height: 100px;
+}
+.edit {
+    padding-left: 20px;
+    font-size: 40px;
+}
+.status {
+    grid-area: d;
+    padding-top: 10px;
+    font-size: 25px;
+}
+
