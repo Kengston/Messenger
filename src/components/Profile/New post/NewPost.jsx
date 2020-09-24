@@ -4,16 +4,16 @@ import NewPostContainer from "./NewPostC";
 import {addPostCreator, updatePostCreator} from "../../../redux/Profile-reducer";
 
 const NewPost = (props) => {
-
+    console.log(props)
     let newPostElements = React.createRef();
 
     let onAddPost = () => {
-        props.addPost();
+        props.addPostCreator();
     }
 
     let onPostChange = () => {
         let text = newPostElements.current.value;
-        props.updatePostText(text);
+        props.updatePostCreator(text);
     }
 
     return (

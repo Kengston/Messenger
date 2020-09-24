@@ -1,10 +1,9 @@
 import React from "react";
 import {addPostCreator, updatePostCreator} from "../../../redux/Profile-reducer";
 import NewPost from "./NewPost";
-import StoreContext from "../../../StoreContex";
+import {connect} from "react-redux";
 
-const NewPostContainer = (props) => {
-
+/* const NewPostContainer = (props) => {
     return (
         <StoreContext.Consumer>
             {
@@ -19,6 +18,7 @@ const NewPostContainer = (props) => {
                         let newVar = updatePostCreator(text);
                         store.dispatch(newVar);
                     }
+
                     return (
                         <NewPost updatePostText={onPostChange}
                                  addPost={addPost}
@@ -28,6 +28,14 @@ const NewPostContainer = (props) => {
             }
         </StoreContext.Consumer>
     )
+} */
+
+let mapStateToProps = (state) => {
+    return {
+        newPost: state.profilePage.newPost
+    }
 }
+
+const NewPostContainer = connect(mapStateToProps, {updatePostCreator, addPostCreator}) (NewPost)
 
 export default NewPostContainer;

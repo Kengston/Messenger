@@ -3,7 +3,7 @@ const ADD_POST = 'ADD-POST';
 
 let initialState = {
     postsData: [
-        {id: 1, post: 'Го по пиву пацаны'},
+        {id: 1, post: 'Го по пиву'},
         {id: 2, post: ')'}
     ],
     newPost: 'jopa'
@@ -12,16 +12,13 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
-            let newPost = {
-                id: 3,
-                post: state.newPost
+            return {
+                ...state,
+                postsData: [...state.postsData, {id: 3, post: state.newPost}],
+                newPost: ''
             };
-            state.postsData.push(newPost);
-            state.newPost = '';
-            return state;
         case UPDATE_POST:
-            state.newPost = action.text;
-            return state;
+            return {...state, newPost: action.text};
         default:
             return state;
     }

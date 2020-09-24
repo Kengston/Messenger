@@ -2,9 +2,9 @@ import React from "react";
 import "../Dialogs.css";
 import {sendMessageCreator, updateMessageCreator} from "../../../redux/Dialogs-reducer";
 import Chat from "./Chat";
-import StoreContext from "../../../StoreContex";
+import {connect} from "react-redux";
 
-const ChatContainer = (props) => {
+/* const ChatContainer = (props) => {
 
     return <StoreContext.Consumer>
         { (store) => {
@@ -26,5 +26,15 @@ const ChatContainer = (props) => {
     }
     </StoreContext.Consumer>;
 }
+*/
+
+let mapStateToProps = (state) => {
+    return {
+        newMessage: state.dialogsPage.newMessage,
+        messages: state.dialogsPage.messagesData
+    }
+}
+
+const ChatContainer = connect(mapStateToProps, {updateMessageCreator, sendMessageCreator}) (Chat)
 
 export default ChatContainer;
