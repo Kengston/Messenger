@@ -1,26 +1,38 @@
 import React from "react";
-import Messages from "./Messages/Messages"
-import User from "./User/User";
-import Friends from "./Friends/Friends";
-import Settings from "./Settings/Settings";
-import Exit from "./Exit/Exit";
 import styles from "./Navbar.module.css"
+import {NavLink} from "react-router-dom";
+import style from "./Navbar.module.css";
+import user from "../../img/icon_user.png";
+import messages from "../../img/icon_messages.png";
+import friends from "../../img/icon_friends.png";
+import settings from "../../img/icon_settings.png";
+import exit from "../../img/icon_exit.png";
 
 const Navbar = () => {
     return (
         <nav className='nav'>
             <div>
-                <User/>
+                <div>
+                    <NavLink to="/Profile" className={style.nav} activeClassName={`${style.nav} ${style.active}`}><img src={user} alt="user"/></NavLink>
+                </div>
                 <hr />
-                <Messages/>
+                <div>
+                    <NavLink to="/Dialogs" className={style.nav} activeClassName={`${style.nav} ${style.active}`}><img src={messages} alt="messages"/></NavLink>
+                </div>
                 <hr />
-                <Friends />
+                <div>
+                    <NavLink to="/FriendsList" className={style.nav} activeClassName={`${style.nav} ${style.active}`}><img src={friends} alt="friends"/></NavLink>
+                </div>
                 <hr />
-                <Settings />
+                <div>
+                    <NavLink to="/Preferences" className={style.nav} activeClassName={`${style.nav} ${style.active}`}><img src={settings} alt="settings"/></NavLink>
+                </div>
                 <hr />
             </div>
             <div className={styles.ex}>
-                <Exit />
+                <div>
+                    <a><img className={style.imgex} src={exit} alt="messages"/></a>
+                </div>
             </div>
         </nav>
     );
