@@ -3,6 +3,7 @@ import {addPostCreator, updatePostCreator} from "../../../redux/Profile-reducer"
 import NewPost from "./NewPost";
 import {connect} from "react-redux";
 
+
 /* const NewPostContainer = (props) => {
     return (
         <StoreContext.Consumer>

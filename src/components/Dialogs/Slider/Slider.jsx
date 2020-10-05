@@ -7,7 +7,7 @@ import "../Dialogs.css";
 const Slider = (props) => {
 
     let dialogElements =
-    props.dialogs.map( dialog => <MyPastDialogs name={dialog.name} id={dialog.id} />);
+    props.dialogs.map( dialog => <MyPastDialogs name={dialog.name} id={dialog.id} key={dialog.id} />);
 
     return (
         <div className="slider">

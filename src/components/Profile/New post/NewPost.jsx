@@ -1,10 +1,7 @@
 import React from "react";
 import newp from "./NewPost.module.css";
-import NewPostContainer from "./NewPostC";
-import {addPostCreator, updatePostCreator} from "../../../redux/Profile-reducer";
 
 const NewPost = (props) => {
-    console.log(props)
     let newPostElements = React.createRef();
 
     let onAddPost = () => {

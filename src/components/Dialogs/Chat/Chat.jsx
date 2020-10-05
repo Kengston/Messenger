@@ -6,7 +6,7 @@ import MessageBuble from "./MessageBuble/MessageBuble";
 const Chat = (props) => {
 
     let messageElements =
-        props.messages.map( messages => <MessageBuble message={messages.message} />);
+        props.messages.map( messages => <MessageBuble message={messages.message} key={messages.id} />);
 
     let newMessageElement = React.createRef();
 
