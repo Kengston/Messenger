@@ -1,15 +1,16 @@
 import React from "react";
 import fl from "./FriendsList.module.css"
+import * as axios from 'axios'
 
 let FriendsList = (props) => {
 
     if (props.users.length === 0) {
-        props.setUsers([
-            {id: 1, photoUrl: '', followed: true, fullName: 'Danil', status: 'Im a teacher'},
-            {id: 2, photoUrl: '', followed: false, fullName: 'Vera', status: 'Im a teacher'},
-            {id: 3, photoUrl: '', followed: false, fullName: 'George', status: 'Im a teacher'},
-            {id: 4, photoUrl: '', followed: false, fullName: 'Paul', status: 'Im a teacher'}
-        ])
+
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+
+            props.setUsers(response.data.items)
+        });
+
     }
 
     return (
