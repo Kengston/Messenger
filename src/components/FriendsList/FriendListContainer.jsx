@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {followAC, setUserAC, unfollowAC} from "../../redux/User-reducer";
-import FriendsList from "./FriendsList";
+import FriendsListC from "./FriendsList"
 
 let mapStateToProps = (state) => {
     return {
@@ -24,4 +24,4 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps) (FriendsList);
+export default connect(mapStateToProps, mapDispatchToProps) (FriendsListC);
