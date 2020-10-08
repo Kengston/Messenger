@@ -4,14 +4,10 @@ import * as axios from 'axios'
 
 class FriendsList extends React.Component {
 
-    getUsers = () => {
-
-        if (this.props.users.length === 0) {
-
-            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-                this.props.setUsers(response.data.items)
-            });
-        }
+    componentDidMount() {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            this.props.setUsers(response.data.items)
+        });
     }
 
     render() {
@@ -19,7 +15,7 @@ class FriendsList extends React.Component {
         return (
 
             <div className={fl.table}>
-                <button onClick={this.getUsers}>Get Users</button>
+
                 {
                     this.props.users.map(u => <div key={u.id}>
 
