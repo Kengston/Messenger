@@ -10,8 +10,8 @@ class FriendsList extends React.Component {
         });
     }
 
-    onPageChanged = (e) => {
-
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber)
     }
 
     //Разобраться со стилями позже
@@ -30,7 +30,7 @@ class FriendsList extends React.Component {
                 <div>
                     {pages.map( p => {
                        return <span className={this.props.currentPage === p && fl.selectedPage}
-                       onClick={() => { this.props.setCurrentPage(p) }}>{p}</span>
+                       onClick={(e) => { this.onPageChanged(p); }}>{p}</span>
                     })}
                 </div>
                 {
