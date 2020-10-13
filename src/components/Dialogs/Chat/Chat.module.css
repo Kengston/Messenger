@@ -15,6 +15,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.textarea:focus {
+    border: solid #2b2b2b 2px;
+}
 .area {
     margin-left: 85px;
 }
