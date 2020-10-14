@@ -9,7 +9,7 @@ import {
 } from "../../redux/User-reducer";
 import * as axios from 'axios'
 import FriendList from './FriendList'
-import './FriendListContainer.css';
+import Preloader from "../common/Preloader/Preloader";
 
 class FriendsListAPI extends React.Component {
     componentDidMount() {
@@ -35,20 +35,7 @@ class FriendsListAPI extends React.Component {
 
     render() {
         return <>
-            { this.props.isFetching ? <div className="lds-default">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div> : null }
+            { this.props.isFetching ? <Preloader /> : null }
             <FriendList totalUsersCount = {this.props.totalUsersCount}
                            pageSize = {this.props.pageSize}
                            onPageChanged = {this.onPageChanged}
