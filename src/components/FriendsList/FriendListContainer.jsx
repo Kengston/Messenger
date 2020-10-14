@@ -28,16 +28,31 @@ class FriendsListAPI extends React.Component {
             });
     }
 
-    //Разобраться со стилями позже
     render() {
-        return <FriendList totalUsersCount = {this.props.totalUsersCount}
+        return <>
+            { this.props.isFetching ? <div className="lds-default">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div> : null }
+            <FriendList totalUsersCount = {this.props.totalUsersCount}
                            pageSize = {this.props.pageSize}
                            onPageChanged = {this.onPageChanged}
                            currentPage = {this.props.currentPage}
                            users = {this.props.users}
                            follow = {this.props.follow}
                            unfollow = {this.props.unfollow}
-        />
+            />
+        </>
     }
 }
 
@@ -46,7 +61,8 @@ let mapStateToProps = (state) => {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage
+        currentPage: state.usersPage.currentPage,
+        isFetching: state.usersPage.isFetching
     }
 }
 
