@@ -4,17 +4,20 @@ import {
     followAC,
     setCurrentPageAC,
     setUserAC,
-    setUsersTotalCountAC,
+    setUsersTotalCountAC, toggleIsFetchingAC,
     unfollowAC
 } from "../../redux/User-reducer";
 import * as axios from 'axios'
 import FriendList from './FriendList'
+import './FriendListContainer.css';
 
 class FriendsListAPI extends React.Component {
     componentDidMount() {
+        this.props.toggleIsFetching(true);
         axios.get("https://social-network.samuraijs.com/api/1.0/users")
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
+                this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items);
                 this.props.setTotalUsersCount(response.data.totalCount);
             });
@@ -22,8 +25,10 @@ class FriendsListAPI extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
+        this.props.toggleIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
             .then(response => {
+                this.props.toggleIsFetching(false)
                 this.props.setUsers(response.data.items);
             });
     }
@@ -82,6 +87,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setTotalUsersCount: (totalCount) => {
             dispatch(setUsersTotalCountAC(totalCount))
+        },
+        toggleIsFetching: (isFetching) => {
+            dispatch(toggleIsFetchingAC(isFetching))
         }
     }
 }
