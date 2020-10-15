@@ -35,15 +35,14 @@ class FriendsListAPI extends React.Component {
 
     render() {
         return <>
-            { this.props.isFetching ? <Preloader /> : null }
-            <FriendList totalUsersCount = {this.props.totalUsersCount}
-                           pageSize = {this.props.pageSize}
-                           onPageChanged = {this.onPageChanged}
-                           currentPage = {this.props.currentPage}
-                           users = {this.props.users}
-                           follow = {this.props.follow}
-                           unfollow = {this.props.unfollow}
-            />
+            { this.props.isFetching ? <Preloader /> : <FriendList totalUsersCount = {this.props.totalUsersCount}
+                                                                  pageSize = {this.props.pageSize}
+                                                                  onPageChanged = {this.onPageChanged}
+                                                                  currentPage = {this.props.currentPage}
+                                                                  users = {this.props.users}
+                                                                  follow = {this.props.follow}
+                                                                  unfollow = {this.props.unfollow}
+            />}
         </>
     }
 }
