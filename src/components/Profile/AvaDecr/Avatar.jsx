@@ -1,11 +1,18 @@
 import React from "react";
 import avatar from './Avatar.module.css'
+import Preloader from "../../common/Preloader/Preloader";
 
-const Avatar = () => {
+const Avatar = (props) => {
+
+    if (!props.profile) {
+        return <Preloader />
+    }
+
     return (
         <div className={avatar.item}>
             <div className={avatar.picture}>
-                <i className="fas fa-user-circle" alt="ava" />
+                { props.profile.photos.large ? <img src={props.profile.photos.large} className="fas fa-user-circle" alt="ava"/> :
+                    <i className="fas fa-user-circle" alt="ava"/> }
             </div>
             <div className={avatar.name}>
                 <span className={avatar.name}>Киану Ривз</span>

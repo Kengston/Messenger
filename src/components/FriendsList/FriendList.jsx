@@ -1,5 +1,6 @@
 import fl from "./FriendsList.module.css";
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 const FriendList = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -22,10 +23,14 @@ const FriendList = (props) => {
                 props.users.map(u => <div key={u.id}>
 
                     <div className={fl.item}>
-                        <div className={fl.picture}>
-                            {u.photos.small ? <img src={u.photos.small} className="fas fa-user-circle" alt="ava"/>
-                                : <i className="fas fa-user-circle" />}
-                        </div>
+
+                            <div className={fl.picture}>
+                                <NavLink to={'/Profile/' + u.id} className={fl.link}>
+                                    {u.photos.small ? <img src={u.photos.small} className="fas fa-user-circle" alt="ava"/>
+                                        : <i className="fas fa-user-circle" />}
+                                </NavLink>
+                            </div>
+                        <div className={fl.status}>Статус: {u.status}</div>
                         <div className={fl.name}> {u.name}
                             {u.followed
                                 ? <button className={fl.button} onClick={() => {
@@ -35,7 +40,7 @@ const FriendList = (props) => {
                                     props.follow(u.id)
                                 }}>Follow</button>}
                         </div>
-                        <div className={fl.status}>Статус: {u.status}</div>
+
                     </div>
 
                 </div>)

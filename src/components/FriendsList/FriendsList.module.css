@@ -16,6 +16,7 @@
     font-size: 100px;
     grid-area: p;
     width: 100px;
+    color: black
 }
 .name {
     grid-area: n;
@@ -33,6 +34,9 @@
 }
 .selectedPage {
     font-weight: bold
+}
+.link {
+    color: black
 }
 
 

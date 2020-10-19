@@ -1,7 +1,7 @@
- import React from "react";
+import React from "react";
 import Avatar from "./AvaDecr/Avatar";
 import MyPosts from "./My posts/MyPosts";
- import NewPostContainer from "./New post/NewPostC";
+import NewPostContainer from "./New post/NewPostC";
 
 const Profile = (props) => {
 
@@ -10,7 +10,7 @@ const Profile = (props) => {
 
     return (
         <div>
-            <Avatar />
+            <Avatar profile={props.profile}/>
             <NewPostContainer />
             {postElements}
         </div>
