@@ -2,6 +2,7 @@ import React from "react";
 import Avatar from "./AvaDecr/Avatar";
 import MyPosts from "./My posts/MyPosts";
 import NewPostContainer from "./New post/NewPostC";
+import style from "./Profile.module.css"
 
 const Profile = (props) => {
 
@@ -11,8 +12,10 @@ const Profile = (props) => {
     return (
         <div>
             <Avatar profile={props.profile}/>
-            <NewPostContainer />
-            {postElements}
+            <div className={style.content}>
+                <NewPostContainer />
+                {postElements}
+            </div>
         </div>
     );
 }

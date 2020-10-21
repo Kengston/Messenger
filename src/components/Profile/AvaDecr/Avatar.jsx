@@ -15,11 +15,11 @@ const Avatar = (props) => {
                     <i className="fas fa-user-circle" alt="ava"/> }
             </div>
             <div className={avatar.name}>
-                <span className={avatar.name}>Киану Ривз</span>
+                <span className={avatar.name}>{props.profile.fullName}</span>
                 <span className={avatar.edit}><i className="fas fa-edit" alt="edit" /></span>
             </div>
             <div className={avatar.status}>
-                <span className={avatar.status}>Статус: Online</span>
+                <span className={avatar.status}>Статус: {props.profile.aboutMe}</span>
             </div>
         </div>
     );
