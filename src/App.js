@@ -15,7 +15,7 @@ const App = (props) => {
                 <Header />
                 <Navbar />
                 <div className='content'>
-                    <Route path='/Profile' render={ () => <ProfileContainer state={props.state.profilePage}/> }/>
+                    <Route path='/Profile/:userId?' render={ () => <ProfileContainer state={props.state.profilePage}/> }/>
                     <Route path='/Dialogs' render={ () => <Dialog state={props.state.dialogsPage}/> }/>
                     <Route path='/FriendsListAPI' render={ () => <FriendListContainer state={props.state.usersPage}/> }/>
                     <Route path='/Preferences' component={Preferences} />
