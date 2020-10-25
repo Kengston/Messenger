@@ -1,8 +1,9 @@
 import fl from "./FriendsList.module.css";
 import React from "react";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
-const FriendList = (props) => {
+let FriendList = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
     let pages = [];
@@ -34,10 +35,30 @@ const FriendList = (props) => {
                         <div className={fl.name}> {u.name}
                             {u.followed
                                 ? <button className={fl.button} onClick={() => {
-                                    props.unfollow(u.id)
+                                    axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "9570e193-2a7c-4dd8-b4f5-0a2d9"
+                                        }
+                                    })
+                                        .then(response => {
+                                            if (response.data.resultCode == 0) {
+                                                props.unfollow(u.id);
+                                            }
+                                        });
                                 }}>Unfollow</button>
                                 : <button className={fl.button} onClick={() => {
-                                    props.follow(u.id)
+                                    axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                        withCredentials: true,
+                                        headers: {
+                                            "API-KEY": "9570e193-2a7c-4dd8-b4f5-0a2d9"
+                                        }
+                                    })
+                                        .then(response => {
+                                            if (response.data.resultCode == 0) {
+                                                props.follow(u.id);
+                                            }
+                                        });
                                 }}>Follow</button>}
                         </div>
 
