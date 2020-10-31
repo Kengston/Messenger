@@ -5,9 +5,8 @@ import {
     setCurrentPage,
     setUsers,
     setTotalUsersCount, toggleIsFetching,
-    unfollow
+    unfollow, toggleFollowingProgress
 } from "../../redux/User-reducer";
-import * as axios from 'axios'
 import FriendList from './FriendList'
 import Preloader from "../common/Preloader/Preloader";
 import {usersAPI} from "../../api/api";
@@ -41,6 +40,8 @@ class FriendsListAPI extends React.Component {
                                                                   users = {this.props.users}
                                                                   follow = {this.props.follow}
                                                                   unfollow = {this.props.unfollow}
+                                                                  toggleFollowingProgress = {this.props.toggleFollowingProgress}
+                                                                  followingInProgress = {this.props.followingInProgress}
             />}
         </>
     }
@@ -52,7 +53,8 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress
     }
 }
 
@@ -85,5 +87,6 @@ export default connect(mapStateToProps, {
     setUsers,
     setCurrentPage,
     setTotalUsersCount,
-    toggleIsFetching
+    toggleIsFetching,
+    toggleFollowingProgress
 }) (FriendsListAPI);
