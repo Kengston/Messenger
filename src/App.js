@@ -7,6 +7,7 @@ import Preferences from "./components/Preferences/Preferences";
 import {Route} from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 const App = (props) => {
 
@@ -19,6 +20,7 @@ const App = (props) => {
                     <Route path='/Dialogs' render={ () => <Dialog state={props.state.dialogsPage}/> }/>
                     <Route path='/FriendsListAPI' render={ () => <FriendListContainer state={props.state.usersPage}/> }/>
                     <Route path='/Preferences' component={Preferences} />
+                    <Route path='/Login' render={ () => <Login /> } />
                 </div>
             </div>
     );

@@ -7,8 +7,11 @@ import {
 } from "../../redux/User-reducer";
 import FriendList from './FriendList'
 import Preloader from "../common/Preloader/Preloader";
+import {Redirect} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
-class FriendsListAPI extends React.Component {
+class FriendsListContainer extends React.Component {
+
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
@@ -18,6 +21,9 @@ class FriendsListAPI extends React.Component {
     }
 
     render() {
+
+        if (this.props.isAuth == false) return <Redirect to={"/Login"}/>
+
         return <>
             { this.props.isFetching ? <Preloader /> : <FriendList totalUsersCount = {this.props.totalUsersCount}
                                                                   pageSize = {this.props.pageSize}
@@ -39,14 +45,16 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
+        followingInProgress: state.usersPage.followingInProgress,
+        isAuth: state.auth.isAuth
     }
 }
 
-export default connect(mapStateToProps, {
+
+export default withAuthRedirect(connect(mapStateToProps, {
     follow,
     unfollow,
     setCurrentPage,
     toggleFollowingProgress,
     getUsers
-}) (FriendsListAPI);
+}) (FriendsListContainer));

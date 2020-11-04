@@ -3,6 +3,7 @@ import "../Dialogs.css";
 import {sendMessageCreator, updateMessageCreator} from "../../../redux/Dialogs-reducer";
 import Chat from "./Chat";
 import {connect} from "react-redux";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
 /* const ChatContainer = (props) => {
 
@@ -35,6 +36,8 @@ let mapStateToProps = (state) => {
     }
 }
 
-const ChatContainer = connect(mapStateToProps, {updateMessageCreator, sendMessageCreator}) (Chat)
+let AuthRedirectComponent = withAuthRedirect(Chat);
+
+const ChatContainer = connect(mapStateToProps, {updateMessageCreator, sendMessageCreator}) (AuthRedirectComponent);
 
 export default ChatContainer;

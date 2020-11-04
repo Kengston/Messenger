@@ -1,7 +1,6 @@
 import fl from "./FriendsList.module.css";
 import React from "react";
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 
 let FriendList = (props) => {
 
@@ -11,6 +10,7 @@ let FriendList = (props) => {
     for (let i=1; i <= pagesCount; i++) {
         pages.push(i);
     }
+
 
     return (
 

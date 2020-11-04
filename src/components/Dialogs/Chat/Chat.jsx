@@ -2,6 +2,7 @@ import React from "react";
 import "../Dialogs.css";
 import styles from "./Chat.module.css";
 import MessageBuble from "./MessageBuble/MessageBuble";
+import { Redirect } from "react-router-dom";
 
 const Chat = (props) => {
 
