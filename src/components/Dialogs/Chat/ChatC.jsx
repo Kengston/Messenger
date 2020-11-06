@@ -4,6 +4,7 @@ import {sendMessageCreator, updateMessageCreator} from "../../../redux/Dialogs-r
 import Chat from "./Chat";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 /* const ChatContainer = (props) => {
 
@@ -36,8 +37,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-let AuthRedirectComponent = withAuthRedirect(Chat);
-
-const ChatContainer = connect(mapStateToProps, {updateMessageCreator, sendMessageCreator}) (AuthRedirectComponent);
-
-export default ChatContainer;
+export default compose(
+    connect(mapStateToProps, {updateMessageCreator, sendMessageCreator}),
+    withAuthRedirect
+) (Chat);

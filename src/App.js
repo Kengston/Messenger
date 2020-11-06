@@ -18,7 +18,7 @@ const App = (props) => {
                 <div className='content'>
                     <Route path='/Profile/:userId?' render={ () => <ProfileContainer state={props.state.profilePage}/> }/>
                     <Route path='/Dialogs' render={ () => <Dialog state={props.state.dialogsPage}/> }/>
-                    <Route path='/FriendsListAPI' render={ () => <FriendListContainer state={props.state.usersPage}/> }/>
+                    <Route path='/FriendsList' render={ () => <FriendListContainer state={props.state.usersPage}/> }/>
                     <Route path='/Preferences' component={Preferences} />
                     <Route path='/Login' render={ () => <Login /> } />
                 </div>

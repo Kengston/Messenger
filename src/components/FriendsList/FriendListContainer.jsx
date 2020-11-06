@@ -9,6 +9,7 @@ import FriendList from './FriendList'
 import Preloader from "../common/Preloader/Preloader";
 import {Redirect} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 class FriendsListContainer extends React.Component {
 
@@ -50,11 +51,13 @@ let mapStateToProps = (state) => {
     }
 }
 
-
-export default withAuthRedirect(connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setCurrentPage,
-    toggleFollowingProgress,
-    getUsers
-}) (FriendsListContainer));
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, {
+        follow,
+        unfollow,
+        setCurrentPage,
+        toggleFollowingProgress,
+        getUsers
+    })
+) (FriendsListContainer)

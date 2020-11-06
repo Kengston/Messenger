@@ -21,7 +21,7 @@ const Navbar = () => {
                 </div>
                 <hr />
                 <div>
-                    <NavLink to="/FriendsListAPI" className={style.nav} activeClassName={`${style.nav} ${style.active}`}><img src={friends} alt="friends"/></NavLink>
+                    <NavLink to="/FriendsList" className={style.nav} activeClassName={`${style.nav} ${style.active}`}><img src={friends} alt="friends"/></NavLink>
                 </div>
                 <hr />
                 <div>

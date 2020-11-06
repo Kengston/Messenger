@@ -12,7 +12,7 @@ const Profile = (props) => {
 
     return (
         <div>
-            <Avatar profile={props.profile}/>
+            <Avatar profile={props.profile} status={props.status}/>
             <div className={style.content}>
                 <NewPostContainer />
                 {postElements}
