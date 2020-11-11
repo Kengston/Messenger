@@ -18,7 +18,7 @@ const Avatar = (props) => {
             <div className={avatar.name}>
                 <span className={avatar.name}>{props.profile.fullName}</span>
             </div>
-            <AvatarStatus profile={props.profile}/>
+            <AvatarStatus profile={props.profile} status={props.status}/>
         </div>
     );
 }
