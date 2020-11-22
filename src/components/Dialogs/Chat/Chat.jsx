@@ -2,23 +2,18 @@ import React from "react";
 import "../Dialogs.css";
 import styles from "./Chat.module.css";
 import MessageBuble from "./MessageBuble/MessageBuble";
-import { Redirect } from "react-router-dom";
+import {Field, reduxForm} from "redux-form";
+
 
 const Chat = (props) => {
 
     let messageElements =
         props.messages.map( messages => <MessageBuble message={messages.message} key={messages.id} />);
 
-    let newMessageElement = React.createRef();
-
-    let onSendMessage = () => {
-        props.sendMessageCreator();
+    let addNewMessage = (values) => {
+        props.sendMessageCreator(values.newMessage);
     }
 
-    let onMessageChange = () => {
-        let newText = newMessageElement.current.value;
-        props.updateMessageCreator(newText);
-    }
 
     return (
         <div className="dialog">
@@ -27,13 +22,22 @@ const Chat = (props) => {
                     {messageElements}
                 </div>
                 <div className={styles.area}>
-                    <textarea className={styles.textarea} placeholder="Ваше сообщение"
-                              ref={ newMessageElement } value={props.newMessage} onChange={onMessageChange}/>
-                    <button className={styles.btn} onClick={ onSendMessage }><i className="fas fa-paper-plane"/></button>
+                    <AddMessageFormRedux onSubmit={addNewMessage}/>
                 </div>
             </div>
         </div>
     );
 }
+
+const AddMessageForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field component="textarea" name="newMessage" className={styles.textarea} placeholder="Ваше сообщение"/>
+            <button className={styles.btn}><i className="fas fa-paper-plane"/></button>
+        </form>
+    )
+}
+
+const AddMessageFormRedux = reduxForm({form: "dialogAddMessageForm"}) (AddMessageForm)
 
 export default Chat;

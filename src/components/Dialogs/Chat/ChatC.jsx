@@ -1,6 +1,6 @@
 import React from "react";
 import "../Dialogs.css";
-import {sendMessageCreator, updateMessageCreator} from "../../../redux/Dialogs-reducer";
+import {sendMessageCreator} from "../../../redux/Dialogs-reducer";
 import Chat from "./Chat";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
@@ -38,6 +38,6 @@ let mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps, {updateMessageCreator, sendMessageCreator}),
+    connect(mapStateToProps, {sendMessageCreator}),
     withAuthRedirect
 ) (Chat);
