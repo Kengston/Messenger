@@ -1,6 +1,5 @@
 import {profileAPI, usersAPI} from "../api/api";
 
-const UPDATE_POST = 'UPDATE-POST';
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_STATUS = 'SET_STATUS';
@@ -21,8 +20,6 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 postsData: [...state.postsData, {id: 3, post: action.newPost}]
             };
-        case UPDATE_POST:
-            return {...state, newPost: action.text};
         case SET_STATUS:
             return {...state, status: action.status};
         case SET_USER_PROFILE:
