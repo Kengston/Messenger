@@ -25,9 +25,9 @@ const NewPost = (props) => {
 let AddNewPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-                <Field component={Textarea} name="newPost" className={newp.textarea}
-                       placeholder="Что нового?" validate={[required, maxLength10]} />
-                <button className={newp.btn}><i className="fas fa-paper-plane"/></button>
+            <Field component={Textarea} name="newPost" className={newp.textarea}
+                   placeholder="Что нового?" validate={[required, maxLength10]} />
+            <button className={newp.btn}><i className="fas fa-paper-plane"/></button>
         </form>
     )
 }
