@@ -1,6 +1,10 @@
 import React from "react";
 import newp from "./NewPost.module.css";
 import {Field, reduxForm} from "redux-form";
+import {Textarea} from "../../common/FormsControl/FormsControl";
+import {maxLengthCreator, required} from "../../../utils/validators/validators";
+
+const maxLength10 = maxLengthCreator(10);
 
 const NewPost = (props) => {
 
@@ -18,11 +22,12 @@ const NewPost = (props) => {
     );
 }
 
-const AddNewPostForm = (props) => {
+let AddNewPostForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <Field component="textarea" name="newPost" className={newp.textarea} placeholder="Что нового?" />
-            <button className={newp.btn}><i className="fas fa-paper-plane"/></button>
+                <Field component={Textarea} name="newPost" className={newp.textarea}
+                       placeholder="Что нового?" validate={[required, maxLength10]} />
+                <button className={newp.btn}><i className="fas fa-paper-plane"/></button>
         </form>
     )
 }
