@@ -31,3 +31,15 @@
     display: grid;
     grid-template-rows: 1fr max-content;
 }
+.forma {
+    display: grid;
+    grid-template-areas:
+    "p n";
+    grid-template-columns: 1fr 1fr;
+}
+.inpt {
+    grid-area: p;
+}
+.spn {
+    grid-area: n;
+}

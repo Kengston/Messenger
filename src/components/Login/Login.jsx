@@ -22,11 +22,16 @@ const LoginForm = (props) => {
                         <Field className={style.textarea} placeholder={"Password"} name={"password"} validate={[required]} component={Input}/>
                     </div>
                 </div>
-                <div>
-                    <Field component={Input} name={"rememberMe"} type={"checkbox"}/> remember me
+                <div className={style.check}>
+                    <div className={style.inpt}>
+                        <Field component={Input} name={"rememberMe"} type={"checkbox"}/>
+                    </div>
+                    <div className={style.spn}>
+                        <span>Remember me</span>
+                    </div>
                 </div>
-                <div>
-                    <button>Button</button>
+                <div className={style.btn}>
+                    <button><i className="fas fa-sign-in-alt"></i></button>
                 </div>
             </form>
         </div>
