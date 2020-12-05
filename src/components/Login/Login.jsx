@@ -4,6 +4,8 @@ import logo from "../../img/icon.png"
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../common/FormsControl/FormsControl";
 import {required} from "../../utils/validators/validators";
+import {connect} from "react-redux";
+import {login} from "../../redux/auth-reducer";
 
 const LoginForm = (props) => {
     return (
@@ -13,13 +15,15 @@ const LoginForm = (props) => {
                 <div className={style.postedit}>
                     <span className={style.mypost}>Логин:</span>
                     <div className={style.text}>
-                        <Field className={style.textarea} placeholder={"Login"} name={"login"} validate={[required]} component={Input}/>
+                        <Field className={style.textarea} placeholder={"Login"} name={"login"}
+                               validate={[required]} component={Input}/>
                     </div>
                 </div>
                 <div className={style.postedit}>
                     <span className={style.mypost}>Пароль:</span>
                     <div className={style.text}>
-                        <Field className={style.textarea} placeholder={"Password"} name={"password"} validate={[required]} component={Input}/>
+                        <Field className={style.textarea} placeholder={"Password"} name={"password"} type={"password"}
+                               validate={[required]} component={Input}/>
                     </div>
                 </div>
                 <div className={style.check}>
@@ -42,7 +46,7 @@ const LoginRedux = reduxForm({form: 'login'}) (LoginForm)
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        console.log(formData);
+        props.login(formData.email, formData.password, formData.rememberMe);
     }
 
     return <div>
@@ -50,4 +54,4 @@ const Login = (props) => {
     </div>
 }
 
-export default Login;
+export default connect(null, {login}) (Login);
