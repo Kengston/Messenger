@@ -6,7 +6,7 @@ import {Input} from "../common/FormsControl/FormsControl";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
-import Redirect from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 const LoginForm = (props) => {
     return (
@@ -36,7 +36,7 @@ const LoginForm = (props) => {
                     </div>
                 </div>
                 <div className={style.btn}>
-                    <button><i className="fas fa-sign-in-alt"></i></button>
+                    <button className={style.btn2}><i className="fas fa-sign-in-alt"></i></button>
                 </div>
             </form>
         </div>
