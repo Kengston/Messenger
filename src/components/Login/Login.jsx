@@ -1,5 +1,6 @@
 import React from 'react'
 import style from "../Login/Login.module.css";
+import styles from "../common/FormsControl/FormsControl.module.css"
 import logo from "../../img/icon.png"
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../common/FormsControl/FormsControl";
@@ -35,6 +36,9 @@ const LoginForm = (props) => {
                         <span>Remember me</span>
                     </div>
                 </div>
+                { props.error && <div className={styles.formSummaryError}>
+                    {props.error}
+                </div> }
                 <div className={style.btn}>
                     <button className={style.btn2}><i className="fas fa-sign-in-alt"></i></button>
                 </div>

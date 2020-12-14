@@ -29,11 +29,6 @@ const Navbar = () => {
                 </div>
                 <hr />
             </div>
-            <div className={styles.ex}>
-                <div>
-                    <a><img className={style.imgex} src={exit} alt="messages"/></a>
-                </div>
-            </div>
         </nav>
     );
 }
