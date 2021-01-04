@@ -12,8 +12,7 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import {
     getCurrentPageSelector, getFollowingInProgressSelector, getIsFetchingSelector,
-    getPageSizeSelector, getTotalUsersCountSelector,
-    getUsersSelector
+    getPageSizeSelector, getTotalUsersCountSelector, getUsersSelector
 } from "../../redux/users-selectors";
 
 class FriendsListContainer extends React.Component {
