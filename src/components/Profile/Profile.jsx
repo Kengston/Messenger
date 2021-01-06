@@ -9,7 +9,6 @@ const Profile = (props) => {
     let postElements =
     props.state.postsData.map( posts => <MyPosts post={posts.post} />);
 
-
     return (
         <div>
             <Avatar profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>

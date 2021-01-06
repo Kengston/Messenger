@@ -32,6 +32,6 @@ let AddNewPostForm = (props) => {
     )
 }
 
-const AddNewPostFormRedux = reduxForm({form: "addNewPostForm"}) (AddNewPostForm)
+let AddNewPostFormRedux = reduxForm({form: "addNewPostForm"}) (AddNewPostForm)
 
 export default NewPost;
