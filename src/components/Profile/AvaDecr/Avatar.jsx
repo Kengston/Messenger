@@ -1,7 +1,6 @@
 import React from "react";
 import avatar from './Avatar.module.css'
 import Preloader from "../../common/Preloader/Preloader";
-import AvatarStatus from "./AvatarStatus";
 import AvatarStatusWithHooks from "./AvatarStatusWithHooks";
 
 const Avatar = (props) => {
