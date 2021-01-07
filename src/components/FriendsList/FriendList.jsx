@@ -1,50 +1,22 @@
 import fl from "./FriendsList.module.css";
 import React from "react";
-import {NavLink} from "react-router-dom";
+import Paginator from "../common/Paginator/Paginator";
+import Friend from "./Friend";
 
-let FriendList = (props) => {
-
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
-    let pages = [];
-    for (let i=1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
-
+let FriendList = ({currentPage, totalUsersCount, pageSize, onPageChanged, users, ...props}) => {
 
     return (
 
         <div className={fl.table}>
-            <div>
-                {pages.map( p => {
-                    return <span className={props.currentPage === p && fl.selectedPage}
-                                 onClick={(e) => { props.onPageChanged(p); }}>{p}</span>
-                })}
-            </div>
+            <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
+                       totalUsersCount={totalUsersCount} pageSize={pageSize} />
             {
-                props.users.map(u => <div key={u.id}>
-
-                    <div className={fl.item}>
-
-                            <div className={fl.picture}>
-                                <NavLink to={'/Profile/' + u.id} className={fl.link}>
-                                    {u.photos.small ? <img src={u.photos.small} className="fas fa-user-circle" alt="ava"/>
-                                        : <i className="fas fa-user-circle" />}
-                                </NavLink>
-                            </div>
-                        <div className={fl.status}>Статус: {u.status}</div>
-                        <div className={fl.name}> {u.name}
-                            {u.followed
-                                ? <button className={fl.button} disabled={props.followingInProgress
-                                    .some(id => id === u.id)}
-                                          onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
-                                : <button className={fl.button}
-                                          onClick={() => { props.follow(u.id) }}>Follow</button>}
-                        </div>
-
-                    </div>
-
-                </div>)
+                users.map(u => <Friend key={u.id}
+                                       user={u}
+                                       followingInProgress={props.followingInProgress}
+                                       unfollow = {props.unfollow}
+                                       follow={props.follow}
+                />)
             }
         </div>
     )

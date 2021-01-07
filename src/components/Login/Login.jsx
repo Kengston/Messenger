@@ -9,10 +9,10 @@ import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
         <div>
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <img className={style.img} src={logo}/>
                 <div className={style.postedit}>
                     <span className={style.mypost}>Логин:</span>
@@ -36,8 +36,8 @@ const LoginForm = (props) => {
                         <span>Remember me</span>
                     </div>
                 </div>
-                { props.error && <div className={styles.formSummaryError}>
-                    {props.error}
+                { error && <div className={styles.formSummaryError}>
+                    {error}
                 </div> }
                 <div className={style.btn}>
                     <button className={style.btn2}><i className="fas fa-sign-in-alt"></i></button>
