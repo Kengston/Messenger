@@ -1,7 +1,6 @@
 import fl from "./FriendsList.module.css";
 import React from "react";
 import {NavLink} from "react-router-dom";
-import Paginator from "../common/Paginator/Paginator";
 
 let Friend = ({user, followingInProgress, unfollow, follow}) => {
 
