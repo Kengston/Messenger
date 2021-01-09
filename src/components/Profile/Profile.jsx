@@ -7,7 +7,7 @@ import style from "./Profile.module.css"
 const Profile = (props) => {
 
     let postElements =
-    props.state.postsData.map( posts => <MyPosts post={posts.post} />);
+    [...props.state.postsData].reverse().map( posts => <MyPosts post={posts.post} />);
 
     return (
         <div>

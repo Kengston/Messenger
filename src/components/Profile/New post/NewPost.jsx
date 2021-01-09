@@ -4,7 +4,7 @@ import {Field, reduxForm} from "redux-form";
 import {Textarea} from "../../common/FormsControl/FormsControl";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength50 = maxLengthCreator(50);
 
 const NewPost = (props) => {
 
@@ -15,9 +15,7 @@ const NewPost = (props) => {
     return (
         <div className={newp.postedit}>
             <span className={newp.mypost}>Мои посты</span>
-            <div className={newp.text}>
-                 <AddNewPostFormRedux onSubmit={addNewPost}/>
-            </div>
+            <AddNewPostFormRedux onSubmit={addNewPost}/>
         </div>
     );
 }
@@ -25,9 +23,15 @@ const NewPost = (props) => {
 let AddNewPostForm = (props) => {
     return (
             <form onSubmit={props.handleSubmit}>
-                <Field component={Textarea} name="newPost" className={newp.textarea}
-                       placeholder="Что нового?" validate={[required, maxLength10]} />
-                <button className={newp.btn}><i className="fas fa-paper-plane"/></button>
+                <div className={newp.text}>
+                    <div className={newp.inpt}>
+                        <Field component={Textarea} name="newPost" className={newp.textarea}
+                               placeholder="Что нового?" validate={[required, maxLength50]} />
+                    </div>
+                    <div className={newp.spn}>
+                        <button className={newp.btn}><i className="fas fa-paper-plane"/></button>
+                    </div>
+                </div>
             </form>
     )
 }

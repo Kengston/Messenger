@@ -6,6 +6,10 @@
     font-size: 35px;
 }
 .text {
+    display: grid;
+    grid-template-areas:
+    "p n";
+    grid-template-columns: 1fr 1fr;
     padding-top: 10px;
     position: relative
 }
@@ -31,4 +35,10 @@
 .btn {
     font-size: 40px;
     margin-left: 20px;
+}
+.inpt {
+    grid-area: p;
+}
+.spn {
+    grid-area: n;
 }
