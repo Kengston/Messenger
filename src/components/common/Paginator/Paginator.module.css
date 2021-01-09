@@ -1,3 +1,10 @@
-.selectedPage {
-    font-weight: bold
+.prev {
+    font-size: 40px;
+}
+.next {
+    font-size: 40px;
+    padding-left: 20px;
+}
+.pag {
+    margin-left: 30px;
 }

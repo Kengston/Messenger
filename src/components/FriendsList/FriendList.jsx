@@ -9,7 +9,7 @@ let FriendList = ({currentPage, totalUsersCount, pageSize, onPageChanged, users,
 
         <div className={fl.table}>
             <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
-                       totalUsersCount={totalUsersCount} pageSize={pageSize} />
+                       totalItemsCount={totalUsersCount} pageSize={pageSize} />
             {
                 users.map(u => <Friend key={u.id}
                                        user={u}
@@ -18,6 +18,7 @@ let FriendList = ({currentPage, totalUsersCount, pageSize, onPageChanged, users,
                                        follow={props.follow}
                 />)
             }
+
         </div>
     )
 }

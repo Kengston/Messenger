@@ -9,7 +9,7 @@
     grid-template-columns: 1fr 6fr;
     grid-auto-rows: 1fr 2fr;
     height: 100px;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-left: 30px;
 }
 .picture {
