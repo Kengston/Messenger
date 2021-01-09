@@ -17,15 +17,15 @@ let Friend = ({user, followingInProgress, unfollow, follow}) => {
                 <div className={fl.status}>Статус: {user.status}</div>
                 <div className={fl.name}> {user.name}
                     {user.followed
-                        ? <button className={fl.button} disabled={followingInProgress
+                        ? <span className={fl.button} disabled={followingInProgress
                             .some(id => id === user.id)}
                                   onClick={() => {
                                       unfollow(user.id)
-                                  }}>Unfollow</button>
-                        : <button className={fl.button}
+                                  }}><i className="fas fa-times"></i></span>
+                        : <span className={fl.button}
                                   onClick={() => {
                                       follow(user.id)
-                                  }}>Follow</button>}
+                                  }}><i className="fas fa-check"></i></span>}
                 </div>
             </div>
         </div>
