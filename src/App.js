@@ -1,17 +1,18 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import Dialog from "./components/Dialogs/Dialogs";
-import FriendListContainer from "./components/FriendsList/FriendListContainer";
 import Preferences from "./components/Preferences/Preferences";
 import {withRouter, Route} from "react-router-dom";
-import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
+
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
+const Dialog = React.lazy(() => import('./components/Dialogs/Dialogs'))
+const FriendListContainer = React.lazy(() => import('./components/FriendsList/FriendListContainer'))
 
 class App extends React.Component {
 
