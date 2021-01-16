@@ -49,3 +49,11 @@
 .textarea:focus {
     border: solid #2b2b2b 2px;
 }
+.inpt {
+    visibility: hidden;
+}
+.pictureEdit {
+    padding-left: 70px;
+    padding-top: 10px;
+    font-size: 30px;
+}

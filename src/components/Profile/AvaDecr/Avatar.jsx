@@ -9,19 +9,19 @@ const Avatar = (props) => {
         return <Preloader />
     }
 
-    const photoSelector = (e) => {
+    const onMainPhotoSelected = (e) => {
         if (e.target.files.length) {
-            props.savePhoto(e.target.files[0])
+            props.savePhoto(e.target.files[0]);
         }
     }
 
     return (
         <div className={avatar.item}>
             <div className={avatar.picture}>
-                {props.isOwner && <input type={'file'} onChange={photoSelector}/>}
                 { props.profile.photos.large ? <img src={props.profile.photos.large} className="fas fa-user-circle" alt="ava"/> :
                     <i className="fas fa-user-circle" alt="ava"/> }
             </div>
+            {props.isOwner && <label className={avatar.pictureEdit}><i className="far fa-image"><input type={'file'} className={avatar.inpt} onChange={onMainPhotoSelected}/></i></label>}
             <div className={avatar.name}>
                 <span className={avatar.name}>{props.profile.fullName}</span>
             </div>
